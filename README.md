@@ -1,26 +1,26 @@
 ### Java StreamAPI Cheat Sheet
 
 ## Content
-1. [Elements of StreamAPI](#elements-of-streamapi):\
-- [forEach()](#foreach)\
-- [map()](#map)\
-- [filter()](#filter)\
-- [limit(n)](#limit(n))\
-- [skip()](#skip())\
-- [flatMap()](#flatmap)\
-- [allMatch()](#allmatch)\
-- [anyMatch()](#anymatch)\
-- [noneMatch()](#nonematch)\
-- [findFirst()](#findfirst)\
-- [findAny()](#findany)\
-- [collect()](#collect)\
-- [count()](#count)\
-- [min/max(Comparator)](#min/max(Comparator))\
-- [reduce()](#reduce())\
-- [distinct()](#distinct())\
-- [sorted()](#sorted())\
-2. [Typical Patterns](#typical-patterns)\
-3. [3-decision Rule](#3-decision-rule)\
+1. [Elements of StreamAPI](#elements-of-streamapi):
+- [forEach()](#foreach)
+- [map()](#map)
+- [filter()](#filter)
+- [limit(n)](#limit(n))
+- [skip()](#skip())
+- [flatMap()](#flatmap)
+- [allMatch()](#allmatch)
+- [anyMatch()](#anymatch)
+- [noneMatch()](#nonematch)
+- [findFirst()](#findfirst)
+- [findAny()](#findany)
+- [collect()](#collect)
+- [count()](#count)
+- [min/max(Comparator)](#min/max(Comparator))
+- [reduce()](#reduce())
+- [distinct()](#distinct())
+- [sorted()](#sorted())
+2. [Typical Patterns](#typical-patterns)
+3. [3-decision Rule](#3-decision-rule)
 
 ## 🔁 Elements of StreamAPI
 # forEach()
