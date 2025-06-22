@@ -21,6 +21,13 @@
 - [sorted()](#EF%B8%8F-sorted)
   
 **2. [Typical Patterns](#typical-patterns)**\
+- [Filter and Transform](#filter-and-transform)
+- [Count amount for elements](#count-amount-for-elements)
+- [Group by field](#group-by-field)
+- [Search by condition](#search-by-condition)
+- [List to Map without collisions](#list-to-map-without-collisions)
+- [flatMap for expanding nested lists](#flatmap-for-expanding-nested-lists)
+  
 **3. [3-decision Rule](#3-decision-rule)**
 
 ## 🔁 Elements of StreamAPI
@@ -158,12 +165,6 @@ long count = list.stream().filter(x -> x > 10).count();
 ```
 Map<Integer, List<Person>> peopleByAge =
     people.stream().collect(Collectors.groupingBy(Person::getAge));
-```
-### Search by condition
-```
-Optional<Person> found = people.stream()
-    .filter(p -> p.getAge() > 30)
-    .findAny(); // or findFirst()
 ```
 ### Search by condition
 ```
