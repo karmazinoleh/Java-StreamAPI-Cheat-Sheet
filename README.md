@@ -16,7 +16,7 @@
 - [collect()](#-collect)
 - [count()](#-count)
 - [min/max(Comparator)](#%EF%B8%8F%EF%B8%8F-minmaxcomparator)
-- [reduce()](#-reduce())
+- [reduce()](#-reduce)
 - [distinct()](#1%EF%B8%8F⃣-distinct)
 - [sorted()](#EF%B8%8F-sorted)
   
@@ -198,9 +198,10 @@ List<String> allTags = articles.stream()
 
 ## 3-decision Rule
 > A simple hint to help you understand which elements to use.
+
 1. **What do I want to do with each element?**
-   *[map()](#map), [filter()](#filter), [flatMap()](#flatMap)...?*
+   *[map()](#-map), [filter()](#-filter), [flatMap()](#-flatMap)...?*
 2. **What do I want to do with the collection as a whole?**
-   *collect, reduce, count, min, max...?*
+   *[collect](#-collect), [reduce](#-reduce), [count](#-count), [min/max](#%EF%B8%8F%EF%B8%8F-minmaxcomparator)...?*
 3. **What result do I need?**
-   *List, Set, Map, Optional, String*...?
+   *[List, Set, Map, Optional, String](#-collect)*...?
