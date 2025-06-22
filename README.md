@@ -7,15 +7,15 @@
 
 ## Elements of StreamAPI
 # forEach()
-*Used for:*
-Go through the elements 🔁
-*Example:*
+*Used for:*\
+Go through the elements 🔁\
+*Example:*\
 ```list.stream().forEach(System.out::println);```
 
 # map()
-*Used for:*
-Convert elements 📦
-*Example:*
+*Used for:*\
+Convert elements 🔂\
+*Example:*\
 ```list.stream().map(String::toUpperCase)```
 
 # filter()
@@ -25,77 +25,104 @@ Filter items 🔍
 ```list.stream().filter(s -> s.length() > 3)```
 
 # limit(n)
-*Used for:*
-Take the first N elements ⬇️
-*Example:*
+*Used for:*\
+Take the first N elements ⬇️\
+*Example:*\
 ```list.stream().limit(5)```
 
 # skip(n)
-*Used for:*
-Skip the first N elements 🛂
-*Example:*
+*Used for:*\
+Skip the first N elements 🛂\
+*Example:*\
 ```list.stream().skip(5)```
 
 # flatMap()
-*Used for:*
-Expand nested lists 🧵
-*Example:*
+*Used for:*\
+Expand nested lists 🧵\
+*Example:*\
 ```listOfLists.stream().flatMap(List::stream)```
 
 # allMatch()
-*Used for:*
-Do all the elements satisfy the condition? ✅
-*Example:*
+*Used for:*\
+Do all the elements satisfy the condition? ✅\
+*Example:*\
 ```stream.allMatch(x -> x > 0)```
 
 # anyMatch()
-*Used for:*
-Does at least one element satisfy the condition? ❓
-*Example:*
+*Used for:*\
+Does at least one element satisfy the condition? ❓\
+*Example:*\
 ```stream.anyMatch(x -> x == 0)```
 
 # noneMatch()
-*Used for:*
-None of the elements satisfy the condition? ❌ 
-*Example:*
+*Used for:*\
+None of the elements satisfy the condition? ❌ \
+*Example:*\
 ```stream.noneMatch(x -> x < 0)```
 
 # findFirst()
-*Used for:*
-Return the first element ▶️
-*Example:*
+*Used for:*\
+Return the first element ▶️\
+*Example:*\
 ```stream.findFirst().orElse(null)```
 
 # findAny()
-*Used for:*
-Return any item 🔙
-*Example:*
+*Used for:*\
+Return any item 🔙\
+*Example:*\
 ```stream.findAny().orElse(null)```
 
 # collect()
-*Used for:*
-Add to the collection 📦
-*Example:*
-```stream.collect(Collectors.toList())```
+*Used for:*\
+Add to the collection 📦\
+*Example:*\
+> To List\
+```stream.collect(Collectors.toList())```\
+> Grouping\
+```collect(Collectors.groupingBy(Person::getAge))```\
+> To Map\
+```collect(Collectors.toMap(User::getId, User::getName))```\
+> Count avarage\
+```collect(Collectors.averagingInt(User::getAge))```\
+> Sum\
+```collect(Collectors.summarizingInt(User::getAge))```\
+> Joining\
+```collect(Collectors.joining(", "))```
 
 # count()
-*Used for:*
-Calculate the amount 📊
-*Example:*
+*Used for:*\
+Calculate the amount 📊\
+*Example:*\
 ```stream.count()```
 
 # min/max(Comparator)
-*Used for:*
-Min/Max ⬇️⬆️
-*Example:*
+*Used for:*\
+Min/Max ⬇️⬆️\
+*Example:*\
 ```stream.max(Comparator.comparing(x -> x))```
 
 # reduce()
-*Used for:*
-Customizable reduction ➕
-*Example:*
-```stream.reduce(0, Integer::sum)```
-```stream.reduce((a, b) -> a + b);```
+*Used for:*\
+Customizable reduction ➕\
+*Example:*\
+```stream.reduce(0, Integer::sum)```\n
+```stream.reduce((a, b) -> a + b)```
+
+# distinct()
+*Used for:*\
+Unique values 1️⃣ \
+*Example:*\
+```stream().distinct().count()```
+
+# sorted()
+*Used for:*\
+Sort ↕️ \
+*Example:*\
+```stream.sorted()```\
+> Sort by field\
+```stream.sorted(Comparator.comparing(Person::getAge))```
+
+
 
 ## Typical Patterns
 # Search for an object by condition
