@@ -18,8 +18,8 @@
 - [min/max(Comparator)](#min/max(Comparator))
 - [reduce()](#reduce())
 - [distinct()](#distinct())
-- [sorted()](#sorted())
-**2. [Typical Patterns](#typical-patterns)**
+- [sorted()](#sorted())\
+**2. [Typical Patterns](#typical-patterns)**\
 **3. [3-decision Rule](#3-decision-rule)**
 
 ## 🔁 Elements of StreamAPI
