@@ -1,6 +1,6 @@
-### Java StreamAPI Cheat Sheet
+# Java StreamAPI Cheat Sheet
 
-## Content
+### Content
 **1. [Elements of StreamAPI](#elements-of-streamapi):**
 - [forEach()](#foreach)
 - [map()](#-map)
@@ -24,161 +24,161 @@
 **3. [3-decision Rule](#3-decision-rule)**
 
 ## 🔁 Elements of StreamAPI
-# forEach()
+### forEach()
 *Used for:*\
 Go through the elements\
 *Example:*\
 ```list.stream().forEach(System.out::println);```
 
-# 🔂 map()
+### 🔂 map()
 *Used for:*\
 Convert elements\
 *Example:*\
 ```list.stream().map(String::toUpperCase)```
 
-# 🔍 filter()
+### 🔍 filter()
 *Used for:*\
 Filter items\
 *Example:*\
 ```list.stream().filter(s -> s.length() > 3)```
 
-# ⬇️ limit(n)
+### ⬇️ limit(n)
 *Used for:*\
 Take the first N elements\
 *Example:*\
 ```list.stream().limit(5)```
 
-# 🛂 skip(n)
+### 🛂 skip(n)
 *Used for:*\
 Skip the first N elements\
 *Example:*\
 ```list.stream().skip(5)```
 
-# 🧵 flatMap()
+### 🧵 flatMap()
 *Used for:*\
 Expand nested lists\
 *Example:*\
 ```listOfLists.stream().flatMap(List::stream)```
 
-# ✅ allMatch()
+### ✅ allMatch()
 *Used for:*\
 Do all the elements satisfy the condition?\
 *Example:*\
 ```stream.allMatch(x -> x > 0)```
 
-# ❓ anyMatch()
+### ❓ anyMatch()
 *Used for:*\
 Does at least one element satisfy the condition?\
 *Example:*\
 ```stream.anyMatch(x -> x == 0)```
 
-# ❌ noneMatch()
+### ❌ noneMatch()
 *Used for:*\
 None of the elements satisfy the condition?\
 *Example:*\
 ```stream.noneMatch(x -> x < 0)```
 
-# ▶️ findFirst()
+### ▶️ findFirst()
 *Used for:*\
 Return the first element\
 *Example:*\
 ```stream.findFirst().orElse(null)```
 
-# 🔙 findAny()
+### 🔙 findAny()
 *Used for:*\
 Return any item\
 *Example:*\
 ```stream.findAny().orElse(null)```
 
-# 📦 collect()
+### 📦 collect()
 *Used for:*\
 Add to the collection\
-*Example:*\
+*Example:*
 - To List
-```stream.collect(Collectors.toList())```\
-- Grouping\
-```collect(Collectors.groupingBy(Person::getAge))```\
-- To Map\
-```collect(Collectors.toMap(User::getId, User::getName))```\
-- Count avarage\
-```collect(Collectors.averagingInt(User::getAge))```\
-- Sum\
-```collect(Collectors.summarizingInt(User::getAge))```\
-- Joining\
+```stream.collect(Collectors.toList())```
+- Grouping
+```collect(Collectors.groupingBy(Person::getAge))```
+- To Map
+```collect(Collectors.toMap(User::getId, User::getName))```
+- Count avarage
+```collect(Collectors.averagingInt(User::getAge))```
+- Sum
+```collect(Collectors.summarizingInt(User::getAge))```
+- Joining
 ```collect(Collectors.joining(", "))```
 
-# 📊 count()
+### 📊 count()
 *Used for:*\
 Calculate the amount\
 *Example:*\
 ```stream.count()```
 
-# ⬇️⬆️ min/max(Comparator)
+### ⬇️⬆️ min/max(Comparator)
 *Used for:*\
 Min/Max\
 *Example:*\
 ```stream.max(Comparator.comparing(x -> x))```
 
-# ➕ reduce()
+### ➕ reduce()
 *Used for:*\
 Customizable reduction\
 *Example:*\
 ```stream.reduce(0, Integer::sum)```\
 ```stream.reduce((a, b) -> a + b)```
 
-# 1️⃣ distinct()
+### 1️⃣ distinct()
 *Used for:*\
 Unique values\
 *Example:*\
 ```stream().distinct().count()```
 
-# ↕️ sorted()
+### ↕️ sorted()
 *Used for:*\
 Sort\
-*Example:*\
-```stream.sorted()```\
-- Sort by field\
+*Example:
+- ```stream.sorted()```
+- Sort by field
 ```stream.sorted(Comparator.comparing(Person::getAge))```
 
 
 
 ## Typical Patterns
-# Filter and Transform
+### Filter and Transform
 ```
 List<String> result = names.stream()
     .filter(name -> name.startsWith("A"))
     .map(String::toUpperCase)
     .collect(Collectors.toList());
 ```
-# Count amount for elements
+### Count amount for elements
 ```
 long count = list.stream().filter(x -> x > 10).count();
 ```
-# Group by field
+### Group by field
 ```
 Map<Integer, List<Person>> peopleByAge =
     people.stream().collect(Collectors.groupingBy(Person::getAge));
 ```
-# Search by condition
+### Search by condition
 ```
 Optional<Person> found = people.stream()
     .filter(p -> p.getAge() > 30)
     .findAny(); // or findFirst()
 ```
-# Search by condition
+### Search by condition
 ```
 Optional<Person> found = people.stream()
     .filter(p -> p.getAge() > 30)
     .findAny(); // or findFirst()
     // .orElse(new Person("Unknown", 31));
 ```
-# Sorting by field
+### Sorting by field
 ```
 List<Person> sorted = people.stream()
     .sorted(Comparator.comparing(Person::getAge))
     .collect(Collectors.toList());
 ```
-# List to Map without collisions
+### List to Map without collisions
 ```
 Map<Integer, String> idToName = people.stream()
     .collect(Collectors.toMap(
@@ -187,7 +187,7 @@ Map<Integer, String> idToName = people.stream()
     (existing, replacement) -> existing // merge-function
 ));
 ```
-# flatMap for expanding nested lists
+### flatMap for expanding nested lists
 ```
 List<String> allTags = articles.stream()
     .flatMap(article -> article.getTags().stream())
