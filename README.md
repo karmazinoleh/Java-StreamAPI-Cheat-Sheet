@@ -20,7 +20,7 @@
 - [distinct()](#1%EF%B8%8F⃣-distinct)
 - [sorted()](#EF%B8%8F-sorted)
   
-**2. [Typical Patterns](#typical-patterns)**\
+**2. [Typical Patterns](#typical-patterns)**
 - [Filter and Transform](#filter-and-transform)
 - [Count amount for elements](#count-amount-for-elements)
 - [Group by field](#group-by-field)
